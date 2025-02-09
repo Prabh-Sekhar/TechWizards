@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="chatbot.css">
-    <title>Document</title>
+    <title>Chatbot</title>
 </head>
 <body>
     <div class="navbar">
@@ -14,7 +14,7 @@
             <a href="#" id="chat-link">
                 <span id="chatbubbleicon" class="material-symbols-outlined" style="font-size: 25px; color: #ea580c">chat_bubble</span>
             </a>
-            <a href="index.html" id="JaanKaari">JaanKaari</a>
+            <a href="#" id="JaanKaari">JaanKaari</a>
         </div>
         <div class="navbar-middle">
             <a href="#">Home</a>
@@ -41,14 +41,14 @@
                         <p>Hello! I'm here to help answer your questions about public awareness. What would you like to know?</p>
                     </li>
                     <li class="chat-outgoing">
-                        <span class="material-symbols-outlined">person</span>
                         <p>User text</p>
+                        <span class="material-symbols-outlined">person</span>
                     </li>
                 </ul>
             </div>
             <div class="chatbot-textbox">
                 <div class="form-container">
-                    <form id="userinput"><input placeholder="Type your message..."></form>
+                    <form id="userinput"><input type="text" id="message" placeholder="Type your message..."></form>
                 </div>
                 <button id="enter" type="submit">
                     <span class="material-symbols-outlined">send</span>

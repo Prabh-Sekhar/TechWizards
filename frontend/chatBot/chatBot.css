@@ -4,6 +4,10 @@ html, body {
     height: 100%;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
 .navbar {
     display: flex;
     height: 70px;
@@ -79,11 +83,15 @@ html, body {
     padding-top: 50px;  
     padding-left: 400px;
     padding-right: 400px;
+    height: 90vh;
 }
 
 .chatbot {
+    display: flex;
+    flex-direction: column;
     border-radius: 15px;
-    background-image: linear-gradient(#fed7aa 32%, transparent 0%);
+    background-image: linear-gradient(#fed7aa 17%, transparent 0%);
+    height: 70vh;
     box-shadow: -1px -1px 17px -7px rgba(0,0,0,0.75);
     -webkit-box-shadow: -1px -1px 17px -7px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px -1px 17px -7px rgba(0,0,0,0.75);
@@ -95,14 +103,62 @@ html, body {
 }
 
 .chatbot-topbar h1 {
-    padding-top: 12px;
     margin-bottom: -16px;
 }
 
+.chatbot-chatscreen {
+    flex-grow: 1;
+    max-height: calc(70vh - 150px); /* Ensure chat screen doesn't overflow */
+    overflow-y: auto;
+}
 
+.chat-incoming {
+    display: flex;
+    align-items: center;
+}
 
+.chatbot .chat-incoming {
+    margin-left: -14px;
+}
 
+.chatbot .chat-incoming p{
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    border: 1px solid rgba(255, 177, 87, 0.7);
+    border-radius: 15px 15px 15px 0px;
+    padding: 10px 20px 10px 20px; 
+    margin-right: 10px;
+    width: 60%; 
+    float: left;   
+}
 
+.chatbot .chat-incoming span {
+    padding-right: 12px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.chatbot .chat-outgoing p{
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(252, 221, 186);
+    border: 1px solid rgba(255, 177, 87, 0.7);
+    border-radius: 15px 15px 0px 15px;
+    padding: 10px 20px 10px 20px; 
+    margin-right: 10px;
+    width: 60%; 
+    float: right;   
+}
+
+.chatbot .chat-outgoing {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 20px;
+}
 
 
 .chatbot-textbox {
@@ -110,6 +166,7 @@ html, body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    padding: 10px;
 }
 
 .form-container {
@@ -125,6 +182,11 @@ html, body {
     border-radius: 10px;
     box-sizing: border-box;
     padding: 8px 12px;
+}
+
+.form-container form input:focus {
+    border: 2px solid rgba(255, 177, 87, 1);
+    outline: none;
 }
 
 .chatbot-textbox button {
@@ -152,10 +214,6 @@ html, body {
     justify-content: space-evenly;
     align-items: center;
     background-color: #fed7aa;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 
 .footer-left p {
