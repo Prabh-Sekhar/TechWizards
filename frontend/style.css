@@ -1,1 +1,597 @@
+html, body {
+    margin: 0; 
+    padding: 0; 
+    height: 100%;
+}
+
+.navbar {
+    display: flex;
+    height: 70px;
+    justify-content: space-evenly;
+    background-color: #ffedd5;
+    align-items: center;
+    box-shadow: 0px -3px 19px -4px rgba(0,0,0,0.74);
+    -webkit-box-shadow: 0px -3px 19px -4px rgba(0,0,0,0.74);
+    -moz-box-shadow: 0px -3px 19px -4px rgba(0,0,0,0.74);
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+#chat-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+.navbar-left:hover {
+    cursor: pointer;
+}
+
+#JaanKaari{
+    text-decoration: none;
+    padding-left: 7px;
+    font-weight: 600;
+    color: #9a3412;
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-middle {
+    display: inline-block;
+    justify-content: space-evenly;
+    
+}
+
+.navbar-middle a {
+    text-decoration: none;
+    color: #a54927;
+    margin-right: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.navbar-middle a:hover {
+    text-decoration:underline;
+}
+
+.navbar-right button {
+    border: none;
+    padding: 10px 20px 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: white;
+    border-radius: 5px;
+    background-color: #f97316;
+}
+
+.navbar-right button:hover {
+    cursor: pointer;
+    background-color: #ea580c;
+}
+
+.startup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fee6dd;
+    padding-bottom: 200px;
+    margin-bottom: 0px;
+    position: relative;
+    z-index: 1;
+}
+
+.startup h1 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 725;
+    font-size: 70px;
+    color: #9a3412;
+    margin-right: 20%;
+    margin-left: 20%;
+    padding-top: 130px;
+    letter-spacing: -3px;
+    line-height: 1.05;
+}
+
+.startup p {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 23px;
+    color: #c2410c;
+    margin-top: -20px;
+    margin-right: 30%;
+    margin-left: 30%;
+    letter-spacing: 0.8px;
+}
+
+.startup button{
+    border: none;
+    background-color: #f97316;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 30px;
+    color: white;
+    padding: 10px 35px 10px 35px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.startup button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #ea580c;
+}
+
+.KeyFeatures {
+    background-color: #fff5f0;
+    margin-top: -50px;
+    padding-bottom: 150px;
+}
+
+.KeyFeaturesBoxes {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.KeyFeatures h1{
+    text-align: center;
+    padding-top: 80px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 725;
+    font-size: 48px;
+    color: #9a3412;
+    letter-spacing: -3px;
+}
+
+.KF1 {
+    border-style: solid;
+    border-radius: 13px;
+    border-width: 1px;
+    border-color: rgba(249, 115, 22, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.KF1 span {
+    font-size: 45px;
+    color: #f97316;
+    padding-top: 20px;
+}
+
+.KF1 h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 725;
+    color: #9a3412;
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 6px;
+}
+
+.KF1 p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #f97316;
+    font-size: 17px;
+    padding: 0px 15px 0px 15px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.KF1:hover {
+    transform: scale(1.01);
+    box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+}
+
+
+.KF2 {
+    border-style: solid;
+    border-radius: 13px;
+    border-width: 0.01px;
+    border-color: rgba(249, 115, 22, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.KF2 span {
+    font-size: 45px;
+    color: #f97316;
+    padding-top: 20px;
+}
+
+.KF2 h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 725;
+    color: #9a3412;
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 6px;
+}
+
+.KF2 p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #f97316;
+    font-size: 17px;
+    padding: 0px 15px 0px 15px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.KF2:hover {
+    transform: scale(1.01);
+    box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+}
+
+.KF3 {
+    border-style: solid;
+    border-radius: 13px;
+    border-width: 0.01px;
+    border-color: rgba(249, 115, 22, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.KF3 span {
+    font-size: 45px;
+    color: #f97316;
+    padding-top: 20px;
+}
+
+.KF3 h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 725;
+    color: #9a3412;
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 6px;
+}
+
+.KF3 p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #f97316;
+    font-size: 17px;
+    padding: 0px 15px 0px 15px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.KF3:hover {
+    transform: scale(1.01);
+    box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+}
+
+.KF4 {
+    border-style: solid;
+    border-radius: 13px;
+    border-width: 0.01px;
+    border-color: rgba(249, 115, 22, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.KF4 span {
+    font-size: 45px;
+    color: #f97316;
+    padding-top: 20px;
+}
+
+.KF4 h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 725;
+    color: #9a3412;
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 6px;
+}
+
+.KF4 p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #f97316;
+    font-size: 17px;
+    padding: 0px 15px 0px 15px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.KF4:hover {
+    transform: scale(1.01);
+    box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+}
+
+.Explore {
+    padding-bottom: 100px;
+    background-color: #ffedd5;
+    margin-top: -50px;
+}
+
+.Explore h1 {
+    text-align: center;
+    padding-top: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 725;
+    font-size: 48px;
+    color: #9a3412;
+    letter-spacing: -3px;
+}
+
+.Explore .EButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Explore .EButtons a:nth-child(1) button {
+    border: none;
+    background-color: #f97316;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 30px;
+    color: white;
+    padding: 10px 35px 10px 35px;
+    margin: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.Explore .EButtons a:nth-child(1) button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #ea580c;
+}
+
+.Explore .EButtons a:nth-child(2) button{
+    border-style: solid;
+    border-color: #ea580c;
+    border-width: 1px;
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 30px;
+    color: #ea580c;
+    padding: 10px 35px 10px 35px;
+    margin: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.Explore .EButtons a:nth-child(2) button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #ffedd5;
+    color: black;
+}
+
+.Explore .EButtons a:nth-child(3) button{
+    border-style: solid;
+    border-color: #ea580c;
+    border-width: 1px;
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 30px;
+    color: #ea580c;
+    padding: 10px 35px 10px 35px;
+    margin: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.Explore .EButtons a:nth-child(3) button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #ffedd5;
+    color: black;
+}
+
+.Explore .userdashboard h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    color: #9a3412;
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-left: 1%;
+    margin-bottom: -0.5%;
+}
+
+.Explore .userdashboard p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #eb580c;
+    padding-left: 10px;
+    margin-left: 1%;
+}
+
+.Explore .userdashboard {
+    border-radius: 15px;
+    width: 75%;
+    margin: 0 auto;
+    background-image: linear-gradient(#fed7aa 33%, transparent 0%);
+    background-color: white; 
+    box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Explore .userdashboard:hover {
+    transform: scale(1.01);
+    box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+}
+
+.Info {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.Info > div > :nth-child(1) {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+}
+
+.Info > div > :nth-child(2) {
+    color: white;
+    text-align: right;
+}
+
+.Info > div > :nth-child(3) {
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    padding-left: 20px;
+    font-weight: bolder;
+}
+
+.TotalQueries {
+    border-radius: 15px;
+    background-image: linear-gradient(#3b82f6 48%, transparent 0%);
+    width: 20%;
+    box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    margin-top: 60px;
+    margin-left: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.CommunityImpact {
+    border-radius: 15px;
+    background-image: linear-gradient(#22c55e 48%, transparent 0%);
+    width: 20%;
+    box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    margin-top: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.CriticalAlerts {
+    border-radius: 15px;
+    background-image: linear-gradient(#ef4444 48%, transparent 0%);
+    width: 20%;
+    box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    margin-top: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.KnowledgeAreas {
+    border-radius: 15px;
+    background-image: linear-gradient(#a855f7 48%, transparent 0%);
+    width: 20%;
+    box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 22px -11px rgba(0,0,0,0.75);
+    margin-top: 60px;
+    margin-right: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.TotalQueries:hover {
+    transform: scale(1.01);
+    box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+}
+
+.CommunityImpact:hover {
+    transform: scale(1.01);
+    box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+}
+
+.CriticalAlerts:hover {
+    transform: scale(1.01);
+    box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+}
+
+.KnowledgeAreas:hover {
+    transform: scale(1.01);
+    box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 10px 35px -11px rgba(0,0,0,0.75);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fed7aa;
+}
+
+.footer-left p {
+    font-family: 'Poppins', sans-serif;
+    color: #9a3412;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.footer-right a {
+    font-family: 'Poppins', sans-serif;
+    color: #9a3412;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
+
 
