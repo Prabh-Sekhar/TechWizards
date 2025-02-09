@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chatbotStyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="#" id="chat-link">
+                <span id="chatbubbleicon" class="material-symbols-outlined" style="font-size: 25px; color: #ea580c">chat_bubble</span>
+            </a>
+            <a href="index.html" id="JaanKaari">JaanKaari</a>
+        </div>
+        <div class="navbar-middle">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">How it works</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="navbar-right">
+            <a href="signup.html">
+                <button>Login/Sign Up</button>
+            </a>
+        </div>
+    </div>
+    <div class="chatbot-container">
+        <div class="chatbot">
+            <div class="chatbot-topbar">
+                <h1>Public Awareness Assistant</h1>
+                <p>Ask questions about public awareness and social trends</p>
+            </div>
+            <div class="chatbot-chatscreen">
+                <ul class="chatbox">
+                    <li class="chat-incoming">
+                        <span class="material-symbols-outlined">smart_toy</span>
+                        <p>Hello! I'm here to help answer your questions about public awareness. What would you like to know?</p>
+                    </li>
+                    <li class="chat-outgoing">
+                        <span class="material-symbols-outlined">person</span>
+                        <p>User text</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="chatbot-textbox">
+                <div class="form-container">
+                    <form id="userinput"><input placeholder="Type your message..."></form>
+                </div>
+                <button id="enter" type="submit">
+                    <span class="material-symbols-outlined">send</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-left">
+            <p>© 2024 JaanKaari: Empowering Communities with Knowledge. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+    <script src="chatbotScript.js"></script>
+</body>
+</html>
