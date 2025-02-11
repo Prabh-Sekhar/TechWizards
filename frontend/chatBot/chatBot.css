@@ -126,10 +126,11 @@ body {
 
 .chatbot-chatscreen {
     flex-grow: 1;
-    max-height: calc(70vh - 150px); /* Ensure chat screen doesn't overflow */
+    max-height: calc(90vh - 150px); /* Ensure chat screen doesn't overflow */
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
-
+    
 .chat-incoming {
     display: flex;
     align-items: center;
@@ -172,7 +173,7 @@ body {
 }
 
 .chatbot .chat-outgoing {
-    display: none;
+    display: flex;
     justify-content: right;
     align-items: center;
     margin-right: 20px;
