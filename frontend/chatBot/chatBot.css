@@ -234,6 +234,25 @@ body {
     color: #fed7aa;
 }
 
+.chatbot-chatscreen::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.chatbot-chatscreen::-webkit-scrollbar-track {
+    background: #ffe5d0;
+    border-radius: 4px;
+}
+
+.chatbot-chatscreen::-webkit-scrollbar-thumb {
+    background: #f97316;
+    border-radius: 4px;
+    border: 1px solid #ea580c;
+}
+
+.chatbot-chatscreen::-webkit-scrollbar-thumb:hover {
+    background: #ea580c;
+}
+
 .clearchat {
     margin-left: 43%;
 }
