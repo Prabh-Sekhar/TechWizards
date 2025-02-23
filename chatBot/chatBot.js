@@ -6,13 +6,13 @@ let clearChatBtn = document.querySelector("#clearChat");
 let chatBox = document.querySelector(".chatbox");
 let chatScreen = document.querySelector(".chatbot-chatscreen");
 
-// Modified messageEnter function with AI integration
+// Modified messageEnter function with loading animation
 let messageEnter = async (event) => {
     event.preventDefault();
     let userMessage = message.value.trim();
     if (userMessage === "") return;
 
-    // Add USER message to chat (existing functionality)
+    // Add USER message
     let outGoingMsg = document.createElement("li");
     outGoingMsg.classList.add("chat-outgoing");
     outGoingMsg.innerHTML = `
@@ -22,8 +22,21 @@ let messageEnter = async (event) => {
     message.value = "";
     chatScreen.scrollTop = chatScreen.scrollHeight;
 
-    // Get AI RESPONSE (new functionality)
+    // Add LOADING ANIMATION
+    let loadingMsg = document.createElement("li");
+    loadingMsg.classList.add("chat-loading");
+    loadingMsg.innerHTML = `
+        <span class="material-symbols-outlined">smart_toy</span>
+        <div class="loading-dots">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>`;
+    chatBox.appendChild(loadingMsg);
+    chatScreen.scrollTop = chatScreen.scrollHeight;
+
     try {
+        // Get AI response
         const response = await fetch('http://localhost:3000/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -32,7 +45,10 @@ let messageEnter = async (event) => {
         
         const data = await response.json();
         
-        // Add BOT response (modified to use real AI response)
+        // Remove loading animation
+        chatBox.removeChild(loadingMsg);
+        
+        // Add BOT response
         let incomingMsg = document.createElement("li");
         incomingMsg.classList.add("chat-incoming");
         incomingMsg.innerHTML = `
@@ -41,7 +57,9 @@ let messageEnter = async (event) => {
         chatBox.appendChild(incomingMsg);
 
     } catch (error) {
-        // Fallback to original dummy response if API fails
+        // Remove loading animation on error
+        chatBox.removeChild(loadingMsg);
+        
         let incomingMsg = document.createElement("li");
         incomingMsg.classList.add("chat-incoming");
         incomingMsg.innerHTML = `
@@ -53,7 +71,7 @@ let messageEnter = async (event) => {
     chatScreen.scrollTop = chatScreen.scrollHeight;
 };
 
-// Clear chat function (existing functionality - fixed syntax)
+// Clear chat function
 let clearChat = () => {
     chatBox.innerHTML = `
         <li class="chat-incoming">
@@ -62,7 +80,7 @@ let clearChat = () => {
         </li>`;
 };
 
-// Event listeners (existing functionality)
+// Event listeners
 message.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         messageEnter(event);
@@ -72,4 +90,3 @@ message.addEventListener("keydown", (event) => {
 clearChatBtn.addEventListener("click", clearChat);
 enterBtn.addEventListener("click", messageEnter);
 userForm.addEventListener("submit", messageEnter);
-
