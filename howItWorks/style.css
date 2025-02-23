@@ -1,0 +1,214 @@
+html, body {
+    margin: 0; 
+    padding: 0; 
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff5f0;
+}
+
+.navbar {
+    display: flex;
+    height: 50px;
+    justify-content: space-evenly;
+    background-color: #ffedd5;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0px -3px 19px -4px rgba(0,0,0,0.74);
+    -webkit-box-shadow: 0px -3px 19px -4px rgba(0,0,0,0.74);
+    -moz-box-shadow: 0px -3px 19px -4px rgba(0,0,0,0.74);
+    position: relative;
+    z-index: 10;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+#chat-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+.navbar-left:hover {
+    cursor: pointer;
+}
+
+#JaanKaari{
+    text-decoration: none;
+    padding-left: 7px;
+    font-weight: 600;
+    color: #9a3412;
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-middle {
+    display: inline-block;
+    justify-content: space-evenly;
+    
+}
+
+.navbar-middle a {
+    text-decoration: none;
+    color: #a54927;
+    margin-right: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.navbar-middle a:hover {
+    text-decoration:underline;
+}
+
+.navbar-right button {
+    border: none;
+    padding: 10px 20px 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: white;
+    border-radius: 5px;
+    background-color: #f97316;
+}
+
+.navbar-right button:hover {
+    cursor: pointer;
+    background-color: #ea580c;
+}
+
+.heading {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 20px;
+}
+
+.boxes {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+
+#askAQuestion {
+    border: 1px solid rgba(53, 51, 51, 0.2);
+    border-radius: 8px;
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+#askAQuestion span {
+    font-size: 45px;
+    padding-top: 20px;
+    margin-bottom: -15px;
+}
+
+#askAQuestion h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    margin-bottom: -5px;
+}
+
+#askAQuestion p {
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+#AIGeneratesResponse {
+    border: 1px solid rgba(53, 51, 51, 0.2);
+    border-radius: 8px;
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+#AIGeneratesResponse span {
+    font-size: 45px;
+    padding-top: 20px;
+    margin-bottom: -15px;
+}
+
+#AIGeneratesResponse h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: -5px;
+}
+
+#AIGeneratesResponse p {
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+#shareOnSocialMedia {
+    border: 1px solid rgba(53, 51, 51, 0.2);
+    border-radius: 8px;
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+#shareOnSocialMedia span {
+    font-size: 45px;
+    padding-top: 20px;
+    margin-bottom: -15px;
+}
+
+#shareOnSocialMedia h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: -5px;
+}
+
+#shareOnSocialMedia p {
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+#privateResponses {
+    border: 1px solid rgba(53, 51, 51, 0.2);
+    border-radius: 8px;
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+#privateResponses span {
+    font-size: 45px;
+    padding-top: 20px;
+    margin-bottom: -15px;
+}
+
+#privateResponses h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: -5px;
+}
+
+#privateResponses p {
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
