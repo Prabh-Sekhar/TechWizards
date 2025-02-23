@@ -1,38 +1,49 @@
 // server.js
-require('dotenv').config(); // Load environment variables from .env
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-// Initialize Express
 const app = express();
+app.use(cors());
+app.use(express.json());
 
-// Middleware setup
-app.use(cors()); // Enable CORS for frontend communication
-app.use(express.json()); // Parse JSON requests
-
-// Initialize Gemini AI with your API key
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
-// Chat endpoint
 app.post('/api/chat', async (req, res) => {
   try {
-    const { message } = req.body;
+    const { message, history } = req.body;
     
-    // Use the free tier model (gemini-pro)
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    
-    // Get AI response
-    const result = await model.generateContent(message);
-    const response = await result.response;
-    
-    // Send formatted response
-    res.json({ 
-      reply: response.text().replace(/\*\*/g, '') // Remove markdown formatting
+    // Filter out initial bot message if present
+    const filteredHistory = history.filter((msg, index) => {
+      if (index === 0 && msg.role === 'bot') return false;
+      return true;
     });
 
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-1.5-flash",
+      generationConfig: { maxOutputTokens: 1000 }
+    });
+
+    // Format conversation history properly
+    const chat = model.startChat({
+      history: filteredHistory.map(msg => ({
+        role: msg.role === "bot" ? "model" : "user",
+        parts: [{ text: msg.content }]
+      })),
+    });
+
+    const result = await chat.sendMessage(message);
+    const response = await result.response;
+    
+    const cleanedText = response.text()
+      .replace(/\*\*/g, '')
+      .replace(/\*/g, '•')
+      .replace(/```/g, '');
+
+    res.json({ reply: cleanedText });
+
   } catch (error) {
-    // Detailed error logging
     console.error('API Error:', error);
     res.status(500).json({ 
       error: 'Failed to generate response',
@@ -41,7 +52,6 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-// Start server
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
