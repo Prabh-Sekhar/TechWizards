@@ -473,7 +473,7 @@ html, body {
 .Info {
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    margin-top: -20px;
 }
 
 .toptext {
