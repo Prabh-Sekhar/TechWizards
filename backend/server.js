@@ -12,17 +12,25 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const GOOGLE_NEWS_API_KEY = process.env.GOOGLE_NEWS_API_KEY;
 
 // Function to fetch news articles from Google News API
-async function fetchNews(query) {
+async function fetchNews(query, isGlobal = false) {
   try {
-    const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=${googleNewsAPIKey}`;
-    const response = await axios.get(url);
+    const googleNewsAPIKey = process.env.GOOGLE_NEWS_API_KEY;
+    
+    let searchQuery = isGlobal ? query : `${query} India`;
+    
+    const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(searchQuery)}&apiKey=${googleNewsAPIKey}`;
 
+    const response = await axios.get(url);
     if (response.data.status !== "ok") {
       throw new Error("Failed to fetch news articles.");
     }
 
-    // Extract top 3 articles with relevant details
-    return response.data.articles.slice(0, 3).map(article => ({
+    // Filter articles: If not global, ensure they mention "India"
+    const articles = response.data.articles
+      .filter(article => isGlobal || article.title.includes("India") || article.description?.includes("India"))
+      .slice(0, 3); // Limit to top 3 articles
+
+    return articles.map(article => ({
       title: article.title,
       source: article.source.name,
       author: article.author || "Unknown",
@@ -37,6 +45,7 @@ async function fetchNews(query) {
     return [];
   }
 }
+
 
 
 // Analyze user message type
@@ -75,14 +84,20 @@ app.post('/api/chat', async (req, res) => {
   try {
     const { message, history } = req.body;
 
-    // Check message type
+    // Determine if user asked for global news
+    const isGlobalNews = /\b(global|world|international)\b/i.test(message);
+    
+    // Check if the message is a news request
     const messageType = await analyzeUserMessage(message);
 
-    // Handle news requests
     if (messageType === 'news') {
-      const newsArticles = await fetchNews(message);
+      const newsArticles = await fetchNews(message, isGlobalNews);
+
       if (newsArticles.length === 0) {
-        return res.json({ reply: "Sorry, I couldn't find any relevant news articles at the moment." });
+        return res.json({ reply: isGlobalNews ? 
+          "Sorry, I couldn't find any global news articles at the moment." : 
+          "Sorry, I couldn't find any India-specific news articles at the moment." 
+        });
       }
 
       const formattedNews = newsArticles.map(article => `
@@ -95,7 +110,7 @@ app.post('/api/chat', async (req, res) => {
       `).join("\n\n");
 
       const newsPrompt = `
-      Based on the following news details, generate a well-structured news article with a headline, introduction, and body paragraphs. Ensure clarity, professional journalistic tone, and factual accuracy.
+      Based on the following ${isGlobalNews ? "global" : "India-related"} news, generate a professional news article with a headline, introduction, and structured paragraphs. Ensure factual accuracy, a formal journalistic tone, and clarity.
       
       ${formattedNews}
       `;
@@ -113,47 +128,14 @@ app.post('/api/chat', async (req, res) => {
     }
 
     // Handle other message types
-    const filteredHistory = history.filter((msg, index) => {
-      if (index === 0 && msg.role === 'bot') return false;
-      return true;
-    });
-
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash",
-      generationConfig: { maxOutputTokens: 1000 }
-    });
-
-    const chat = model.startChat({
-      history: filteredHistory.map(msg => ({
-        role: msg.role === "bot" ? "model" : "user",
-        parts: [{ text: msg.content }]
-      })),
-    });
-
-    let systemInstruction = "";
-    if (messageType === 'awareness') {
-      systemInstruction = "Format your response as a concise news article with a headline, structured paragraphs, and a professional tone.";
-    } else if (messageType === 'greeting') {
-      systemInstruction = "Respond to the greeting in a professional tone, then provide a brief news-style update.";
-    }
-
-    const enhancedMessage = `${systemInstruction}\n\nUser inquiry: ${message}`;
-
-    const result = await chat.sendMessage(enhancedMessage);
-    const response = await result.response;
-    
-    const cleanedText = response.text()
-      .replace(/\*\*/g, '')
-      .replace(/\*/g, '•')
-      .replace(/```/g, '');
-
-    res.json({ reply: cleanedText });
+    res.json({ reply: "I can only provide public awareness and news updates. Please specify your request." });
 
   } catch (error) {
     console.error('API Error:', error);
     res.status(500).json({ error: 'Failed to generate response' });
   }
 });
+
 
 
 const PORT = 3000;
