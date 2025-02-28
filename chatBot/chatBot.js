@@ -1,4 +1,4 @@
-// chatbot.js
+
 let enterBtn = document.querySelector("#enter");
 let message = document.querySelector("#message");
 let userForm = document.querySelector("#userinput");
@@ -6,13 +6,48 @@ let clearChatBtn = document.querySelector("#clearChat");
 let chatBox = document.querySelector(".chatbox");
 let chatScreen = document.querySelector(".chatbot-chatscreen");
 
-// Modified messageEnter function with loading animation
+
+let chatHistory = JSON.parse(sessionStorage.getItem('chatHistory')) || [];
+
+
+function initializeChat() {
+    if (chatHistory.length === 0) {
+        chatBox.innerHTML = `
+            <li class="chat-incoming">
+                <span class="material-symbols-outlined">smart_toy</span>
+                <p>Hello! I'm here to help answer your questions about public awareness. What would you like to know?</p>
+            </li>`;
+    } else {
+        
+        chatBox.innerHTML = chatHistory.map(msg => {
+            return msg.role === "user" ? `
+                <li class="chat-outgoing">
+                    <p>${msg.content}</p>
+                    <span class="material-symbols-outlined">person</span>
+                </li>` : `
+                <li class="chat-incoming">
+                    <span class="material-symbols-outlined">smart_toy</span>
+                    <p>${msg.content}</p>
+                </li>`;
+        }).join("");
+    }
+    chatScreen.scrollTop = chatScreen.scrollHeight;
+}
+
+
+initializeChat();
+
+
 let messageEnter = async (event) => {
     event.preventDefault();
     let userMessage = message.value.trim();
     if (userMessage === "") return;
 
-    // Add USER message
+    
+    chatHistory.push({ role: "user", content: userMessage });
+    sessionStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+
+
     let outGoingMsg = document.createElement("li");
     outGoingMsg.classList.add("chat-outgoing");
     outGoingMsg.innerHTML = `
@@ -22,7 +57,6 @@ let messageEnter = async (event) => {
     message.value = "";
     chatScreen.scrollTop = chatScreen.scrollHeight;
 
-    // Add LOADING ANIMATION
     let loadingMsg = document.createElement("li");
     loadingMsg.classList.add("chat-loading");
     loadingMsg.innerHTML = `
@@ -36,19 +70,22 @@ let messageEnter = async (event) => {
     chatScreen.scrollTop = chatScreen.scrollHeight;
 
     try {
-        // Get AI response
         const response = await fetch('http://localhost:3000/api/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: userMessage })
+            body: JSON.stringify({ 
+                message: userMessage,
+                history: chatHistory.filter(msg => msg.role !== "bot")
+            })
         });
         
         const data = await response.json();
         
-        // Remove loading animation
         chatBox.removeChild(loadingMsg);
         
-        // Add BOT response
+        chatHistory.push({ role: "bot", content: data.reply });
+        sessionStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+
         let incomingMsg = document.createElement("li");
         incomingMsg.classList.add("chat-incoming");
         incomingMsg.innerHTML = `
@@ -57,7 +94,6 @@ let messageEnter = async (event) => {
         chatBox.appendChild(incomingMsg);
 
     } catch (error) {
-        // Remove loading animation on error
         chatBox.removeChild(loadingMsg);
         
         let incomingMsg = document.createElement("li");
@@ -71,8 +107,10 @@ let messageEnter = async (event) => {
     chatScreen.scrollTop = chatScreen.scrollHeight;
 };
 
-// Clear chat function
 let clearChat = () => {
+    chatHistory = [];
+    sessionStorage.removeItem('chatHistory');
+    
     chatBox.innerHTML = `
         <li class="chat-incoming">
             <span class="material-symbols-outlined">smart_toy</span>
@@ -80,7 +118,7 @@ let clearChat = () => {
         </li>`;
 };
 
-// Event listeners
+
 message.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         messageEnter(event);
