@@ -5,27 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="chatBot.css">
     <title>Chatbot</title>
 </head>
 <body>
     <div class="navbar">
         <div class="navbar-left">
-            <a href="../index.html" id="chat-link">
+            <a href="index.html" id="chat-link">
                 <span id="chatbubbleicon" class="material-symbols-outlined" style="font-size: 25px; color: #ea580c">chat_bubble</span>
             </a>
-            <a href="../index.html" id="JaanKaari">JaanKaari</a>
+            <a href="index.html" id="JaanKaari">JaanKaari</a>
         </div>
         <div class="navbar-middle">
-            <a href="../index.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="#">About</a>
-            <a href="../howItWorks/HIW.html">How it works</a>
+            <a href="HIW.html">How it works</a>
             <a href="#">Contact Us</a>
         </div>
         <div class="navbar-right">
-            <a href="signup.html">
-                <button>Login/Sign Up</button>
-            </a>
+            <button id="openPopUp">Login/Sign Up</button>
+                <div id="popupBox" class="popup">
+                    <div class="signUpBox-container">
+                        <div class="signUpBox">
+                            <span class="close">&times;</span>
+                            <h1>Sign Up/Login</h1>
+                            <p>Create your account</p>
+                            <div class="googleSignUp-button">
+                                <a>
+                                    <button id="signUpButton">
+                                        <span>
+                                            <img src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA">
+                                        </span>
+                                        <p>Sign in with Google</p>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
     <div class="chatbot-container">

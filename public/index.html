@@ -17,19 +17,36 @@
             <div class="navbar-middle">
                 <a href="index.html">Home</a>
                 <a href="#">About</a>
-                <a href="howItWorks/HIW.html">How it works</a>
+                <a href="HIW.html">How it works</a>
                 <a href="#">Contact Us</a>
             </div>
             <div class="navbar-right">
-                <a href="signup.html">
-                    <button>Login/Sign Up</button>
-                </a>
+                <button id="openPopUp">Login/Sign Up</button>
+                <div id="popupBox" class="popup">
+                    <div class="signUpBox-container">
+                        <div class="signUpBox">
+                            <span class="close">&times;</span>
+                            <h1>Sign Up/Login</h1>
+                            <p>Create your account</p>
+                            <div class="googleSignUp-button">
+                                <a>
+                                    <button onclick="signInWithGoogle()" id="signUpButton">
+                                        <span>
+                                            <img src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA">
+                                        </span>
+                                        <p>Sign in with Google</p>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="startup">
             <h1>Empowering Communities with Knowledge</h1>
             <p>JaanKaari: Your AI-powered companion for staying informed on crucial public awareness topics.</p>
-            <a href="chatBot/chatbot.html">
+            <a href="chatBot.html">
                 <button>Start Exploring</button>
             </a>
         </div>
@@ -60,7 +77,7 @@
         </div>
         <div class="Explore">
             <h1>Explore JaanKaari</h1>
-            <div class="EButtons"><a href="chatBot/chatbot.html"><button>Start Chatting</button></a><a href="#"><button>View Social Posts</button></a><a href="howItWorks/HIW.html"><button>How it works</button></a></div>
+            <div class="EButtons"><a href="chatBot.html"><button>Start Chatting</button></a><a href="#"><button>View Social Posts</button></a><a href="howItWorks/HIW.html"><button>How it works</button></a></div>
             <div class="userdashboard">
                 <h2>User Dashboard Preview</h2>
                 <p>Experience the power of JaanKaari's user dashboard</p>
@@ -107,6 +124,7 @@
                 <a href="#">Terms</a>
             </div>
         </div>
+        <script src="script.js"></script>
     </body>
 </html>
 
